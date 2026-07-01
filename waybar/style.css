@@ -1,0 +1,134 @@
+* {
+  min-height: 0;
+  min-width: 0;
+  font-family: Lexend, "JetBrainsMono NFP";
+  font-size: 14px;
+  font-weight: 600;
+}
+
+window#waybar {
+  background-color: #11111b;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* Estilo de los espacios de trabajo a la izquierda */
+#workspaces button {
+  padding: 0.1rem 0.6rem;
+  margin: 0.15rem 0.25rem;
+  border-radius: 6px;
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+}
+
+#workspaces button:hover {
+  color: #1e1e2e;
+  background-color: #cdd6f4;
+}
+
+#workspaces button.active {
+  background-color: #89b4fa;
+  color: #11111b;
+}
+
+#workspaces button.urgent {
+  background-color: #f38ba8;
+  color: #11111b;
+}
+
+/* Título de la ventana en el centro - Píldora elegante */
+#window {
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+  padding: 0px 15px;
+  border-radius: 6px;
+  margin: 4px 0px;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+/* Configuración base para TODAS las píldoras de la derecha */
+#cpu, #memory, #backlight, #battery, #pulseaudio, #clock, #tray, #custom-notification, #custom-power {
+  padding: 0px 10px;
+  margin: 4px 3px;
+  border-radius: 6px;
+  color: #11111b; /* Texto oscuro para contraste en pasteles */
+}
+
+/* Colores específicos estilo Catppuccin Mocha */
+#cpu {
+  background-color: #94e2d5; /* Teal */
+}
+
+#memory {
+  background-color: #cba6f7; /* Mauve */
+}
+
+#backlight {
+  background-color: #f9e2af; /* Yellow */
+}
+
+#battery {
+  background-color: #a6e3a1; /* Green */
+}
+
+#battery.charging, #battery.plugged {
+  background-color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+  background-color: #fab387; /* Peach */
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f38ba8; /* Red */
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#pulseaudio {
+  background-color: #b4befe; /* Lavender */
+}
+
+#pulseaudio.muted {
+  background-color: #6c7086;
+  color: #cdd6f4;
+}
+
+#clock {
+  background-color: #74c7ec; /* Sapphire */
+}
+
+#clock.simpleclock {
+  background-color: #89b4fa; /* Blue */
+}
+
+#tray {
+  background-color: #313244; /* Surface 1 */
+  color: #cdd6f4;
+}
+
+#custom-notification {
+  background-color: #f5e0dc; /* Rosewater */
+}
+
+#custom-power {
+  background-color: #f38ba8; /* Red */
+  padding: 0px 12px;
+}
+
+/* Tooltips globales */
+tooltip {
+  background-color: #181825;
+  border: 2px solid #89b4fa;
+  border-radius: 8px;
+}
+
+tooltip label {
+  color: #cdd6f4;
+}
