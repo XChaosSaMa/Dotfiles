@@ -107,7 +107,15 @@ hl.config({
     dwindle = { preserve_split = true },
     master  = { new_status = "master" },
     misc    = { force_default_wallpaper = 0, disable_hyprland_logo = true },
-    input   = { kb_layout = "us,es", kb_options = "grp:alt_shift_toggle", follow_mouse = 1, sensitivity = 0, touchpad = { natural_scroll = false }}
+    input   = { 
+        kb_layout = "us,es", 
+        kb_options = "grp:alt_shift_toggle", 
+        follow_mouse = 1, 
+        sensitivity = 0, 
+        accel_profile = "flat",
+        force_no_accel = true,
+        touchpad = { natural_scroll = false }
+    }
 })
 
 ---------------------
