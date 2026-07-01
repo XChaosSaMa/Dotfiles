@@ -1,0 +1,108 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 28,
+  "spacing": 2,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "passthrough": false,
+  "fixed-center": true,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "backlight",
+    "battery",
+    "pulseaudio",
+    "clock",
+    "tray",
+    "custom/notification",
+    "custom/power"
+  ],
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "all-outputs": true,
+    "disable-scroll": false,
+    "active-only": false,
+    "on-click": "hl.dispatch(hl.dsp.focus({ workspace = {id} }))"
+  },
+  "hyprland/window": {
+    "format": "󰖯 {title}",
+    "max-length": 40
+  },
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10
+  },
+  "clock": {
+        	"format": "{:%I:%M %p}",
+        	"rotate": 0,
+        	"format-alt": "{  %d·%m·%y}",
+        	"tooltip-format": "<span>{calendar}</span>",
+        	"calendar": {
+            		"mode": "month",
+            		"format": {
+                	    "months": "<span color='#ff6699'><b>{}</b></span>",
+                        "days": "<span color='#cdd6f4'><b>{}</b></span>",
+                	    "weekdays": "<span color='#7CD37C'><b>{}</b></span>",
+                	    "today": "<span color='#ffcc66'><b>{}</b></span>"
+            	}
+            }
+    },
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": true,
+    "interval": 1,
+    "on-click": "kitty --class btop -e btop" // <--- Abre btop en una ventana flotante/normal de Kitty
+  },
+  "memory": {
+    "format": " {used:0.1f}Gi",
+    "on-click": "kitty --class btop -e btop" // <--- Lo mismo para la RAM
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-scroll-up": "brightnessctl set +1%",
+    "on-scroll-down": "brightnessctl set 1%-"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  Muted",
+    "format-icons": {
+      "headphone": "",
+      "default": [" ", " ", " "]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "wlogout -p layer-shell &",
+    "format": "⏻"
+  },
+  "custom/notification": {
+    "escape": true,
+    "exec": "swaync-client -swb",
+    "exec-if": "which swaync-client",
+    "format": "{icon}",
+    "format-icons": {
+      "none": "󰅺",
+      "notification": "󰡟"
+    },
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "return-type": "json",
+    "tooltip": false
+  },
+  "battery": {
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󱐋 {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
+  }
+}
