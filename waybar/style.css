@@ -132,3 +132,22 @@ tooltip {
 tooltip label {
   color: #cdd6f4;
 }
+
+/* Estilos para el menú desplegable de apagado */
+#custom-power {
+  background-color: #f38ba8; /* Mantiene tu botón rojo original */
+  padding: 0px 12px;
+  border-radius: 6px;
+}
+
+#custom-lock, #custom-suspend, #custom-reboot, #custom-quit {
+  padding: 0px 10px;
+  margin: 4px 2px;
+  border-radius: 6px;
+  color: #11111b;
+}
+
+#custom-lock { background-color: #f9e2af; }    /* Amarillo */
+#custom-suspend { background-color: #a6e3a1; } /* Verde */
+#custom-reboot { background-color: #fab387; }  /* Naranja */
+#custom-quit { background-color: #eba0ac; }    /* Rosa */
