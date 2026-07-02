@@ -7,7 +7,7 @@
 ------------------
 hl.monitor({
     output = "",
-    mode = "preferred",
+    mode = "1920x1080@240",
     position = "auto",
     scale = 1
 })
@@ -24,8 +24,7 @@ local CodeEditor  = "lapce"
 -------------------
 ---- AUTOSTART ----
 -------------------
-hl.on("hyprland.start", function () 
-    hl.exec_cmd("systemctl --user start hyprpolkitagent")
+hl.on("hyprland.start", function ()
     hl.exec_cmd("waybar")
     hl.exec_cmd("dunst")
     hl.exec_cmd("nm-applet --indicator")
@@ -40,6 +39,11 @@ end)
 -------------------------------
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+
+-- Forzar modo oscuro global
+hl.env("GTK_THEME", "Adwaita:dark")
+hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
+hl.env("COLORTERM", "truecolor")
 
 -----------------------
 ---- LOOK AND FEEL ----
