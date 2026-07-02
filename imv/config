@@ -1,0 +1,25 @@
+[options]
+# Fondo: puedes elegir "checks" (cuadrícula gris/blanca) o un color hexadecimal (ej. 000000 es negro)
+background = checks
+
+# Iniciar siempre en pantalla completa (true / false)
+fullscreen = false
+
+# Modo de escalado por defecto:
+# "full" (ajusta la imagen a la ventana), "none" (tamaño real), "shrink" (solo encoge si es muy grande)
+scaling_mode = full
+
+# Configuración del texto informativo (Overlay) que sale arriba
+overlay_font = Monospace:14
+overlay_text = "${imv_current_index}/${imv_file_count} | %f [%wx%h] [Zoom: ${imv_scale}%]"
+
+[binds]
+# Puedes personalizar tus atajos de teclado (imv ya trae atajos tipo Vim de fábrica)
+# <Tecla> = <Comando de imv o script>
+
+# Flecha derecha para avanzar, flecha izquierda para retroceder
+Left = next
+Right = prev
+
+# Rotar imágenes rápidamente
+r = rotate by 90
