@@ -1,3 +1,5 @@
+# ~/.bashrc
+
 # 1. EVITAR EJECUCIÓN NO INTERACTIVA
 # Si no estamos en una sesión interactiva, no hacer nada
 [[ $- != *i* ]] && return
@@ -24,28 +26,6 @@ shopt -s globstar   # Permite usar ** para buscar recursivamente (ej: ls **/arch
 shopt -s cdspell    # Corrige automáticamente pequeños errores ortográficos al usar cd
 
 # 5. ALIASES ÚTILES Y MINIMALISTAS
-alias ll='ls -lah'
-alias c='clear'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias v='nvim'
+alias ll='ls -hal'
 alias vi='nvim'
 alias vim='nvim'
-
-# Clon de seguridad al borrar o mover archivos importantes
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-
-# Actualización rápida en Arch
-alias pacup='sudo pacman -Syu'
-
-# 6. AUTOCOMPLETADO AVANZADO DE TABULADOR
-# Hacer que el tabulador se comporte de forma más inteligente
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
