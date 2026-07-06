@@ -1,13 +1,16 @@
 * {
   min-height: 0;
   min-width: 0;
-  font-family: Lexend, "JetBrainsMono NFP";
-  font-size: 14px;
-  font-weight: 600;
+  /* Cambiado a Hack Nerd Font para que coincida con tu Fastfetch */
+  font-family: "Hack Nerd Font", Lexend;
+  font-size: 13px;
+  font-weight: 700;
 }
 
+/* Fondo principal de la barra: Ahora es traslúcido y combina con Kitty */
 window#waybar {
-  background-color: #11111b;
+  background-color: rgba(30, 30, 46, 0.75); 
+  border-bottom: 1px solid rgba(180, 190, 254, 0.2);
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -17,18 +20,20 @@ window#waybar {
   padding: 0.1rem 0.6rem;
   margin: 0.15rem 0.25rem;
   border-radius: 6px;
-  background-color: #1e1e2e;
-  color: #cdd6f4;
+  background-color: transparent;
+  color: #585b70; /* Inactivo más sutil */
+  transition: all 0.3s ease;
 }
 
 #workspaces button:hover {
   color: #1e1e2e;
-  background-color: #cdd6f4;
+  background-color: #b4befe;
 }
 
 #workspaces button.active {
   background-color: #89b4fa;
   color: #11111b;
+  min-width: 20px;
 }
 
 #workspaces button.urgent {
@@ -36,9 +41,9 @@ window#waybar {
   color: #11111b;
 }
 
-/* Título de la ventana en el centro - Píldora elegante */
+/* Título de la ventana en el centro */
 #window {
-  background-color: #1e1e2e;
+  background-color: rgba(49, 50, 68, 0.5);
   color: #cdd6f4;
   padding: 0px 15px;
   border-radius: 6px;
@@ -49,41 +54,47 @@ window#waybar.empty #window {
   background-color: transparent;
 }
 
-/* Configuración base para TODAS las píldoras de la derecha */
-#cpu, #memory, #backlight, #battery, #pulseaudio, #clock, #tray, #custom-notification, #custom-power {
-  padding: 0px 10px;
+/* 
+   NUEVA CONFIGURACIÓN PARA MÓDULOS DE LA DERECHA:
+   Fondo oscuro/traslúcido, cada uno con texto de su color pastel correspondiente
+*/
+#cpu, #memory, #backlight, #battery, #pulseaudio, #clock, #tray, #custom-notification, #custom-power,
+#custom-lock, #custom-suspend, #custom-reboot, #custom-quit {
+  padding: 0px 12px;
   margin: 4px 3px;
   border-radius: 6px;
-  color: #11111b; /* Texto oscuro para contraste en pasteles */
+  background-color: rgba(49, 50, 68, 0.6); /* Unificado un fondo sutil oscuro */
 }
 
-/* Colores específicos estilo Catppuccin Mocha */
+/* Colores de TEXTO específicos (Estilo Catppuccin Mocha sobre fondo oscuro) */
 #cpu {
-  background-color: #94e2d5; /* Teal */
+  color: #94e2d5; /* Teal */
 }
 
 #memory {
-  background-color: #cba6f7; /* Mauve */
+  color: #cba6f7; /* Mauve */
 }
 
 #backlight {
-  background-color: #f9e2af; /* Yellow */
+  color: #f9e2af; /* Yellow */
 }
 
 #battery {
-  background-color: #a6e3a1; /* Green */
+  color: #a6e3a1; /* Green */
 }
 
 #battery.charging, #battery.plugged {
-  background-color: #a6e3a1;
+  color: #a6e3a1;
 }
 
 #battery.warning:not(.charging) {
-  background-color: #fab387; /* Peach */
+  color: #fab387; /* Peach */
+  background-color: rgba(250, 179, 135, 0.15); /* Fondo sutil de advertencia */
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f38ba8; /* Red */
+  color: #f38ba8; /* Red */
+  background-color: rgba(243, 139, 168, 0.2);
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -92,62 +103,44 @@ window#waybar.empty #window {
 }
 
 #pulseaudio {
-  background-color: #b4befe; /* Lavender */
+  color: #b4befe; /* Lavender */
 }
 
 #pulseaudio.muted {
-  background-color: #6c7086;
-  color: #cdd6f4;
+  color: #6c7086;
 }
 
 #clock {
-  background-color: #74c7ec; /* Sapphire */
-}
-
-#clock.simpleclock {
-  background-color: #89b4fa; /* Blue */
+  color: #74c7ec; /* Sapphire */
+  font-weight: 800;
 }
 
 #tray {
-  background-color: #313244; /* Surface 1 */
   color: #cdd6f4;
 }
 
 #custom-notification {
-  background-color: #f5e0dc; /* Rosewater */
+  color: #f5e0dc; /* Rosewater */
 }
 
+/* Botón de apagado principal */
 #custom-power {
-  background-color: #f38ba8; /* Red */
-  padding: 0px 12px;
+  color: #f38ba8; /* Red */
 }
+
+/* Iconos del menú desplegable powermenu */
+#custom-lock { color: #f9e2af; }    /* Amarillo */
+#custom-suspend { color: #a6e3a1; } /* Verde */
+#custom-reboot { color: #fab387; }  /* Naranja */
+#custom-quit { color: #eba0ac; }    /* Rosa */
 
 /* Tooltips globales */
 tooltip {
-  background-color: #181825;
-  border: 2px solid #89b4fa;
+  background-color: #1e1e2e;
+  border: 1px solid #89b4fa;
   border-radius: 8px;
 }
 
 tooltip label {
   color: #cdd6f4;
 }
-
-/* Estilos para el menú desplegable de apagado */
-#custom-power {
-  background-color: #f38ba8; /* Mantiene tu botón rojo original */
-  padding: 0px 12px;
-  border-radius: 6px;
-}
-
-#custom-lock, #custom-suspend, #custom-reboot, #custom-quit {
-  padding: 0px 10px;
-  margin: 4px 2px;
-  border-radius: 6px;
-  color: #11111b;
-}
-
-#custom-lock { background-color: #f9e2af; }    /* Amarillo */
-#custom-suspend { background-color: #a6e3a1; } /* Verde */
-#custom-reboot { background-color: #fab387; }  /* Naranja */
-#custom-quit { background-color: #eba0ac; }    /* Rosa */
