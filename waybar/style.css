@@ -119,10 +119,6 @@ window#waybar.empty #window {
   color: #cdd6f4;
 }
 
-#custom-notification {
-  color: #f5e0dc; /* Rosewater */
-}
-
 /* Botón de apagado principal */
 #custom-power {
   color: #f38ba8; /* Red */
