@@ -17,7 +17,6 @@
     "pulseaudio",
     "clock",
     "tray",
-    "custom/notification",
     "group/powermenu"
   ],
   "hyprland/workspaces": {
@@ -75,19 +74,6 @@
       "default": [" ", " ", " "]
     },
     "on-click": "pavucontrol"
-  },
-  "custom/notification": {
-    "escape": true,
-    "exec": "swaync-client -swb",
-    "exec-if": "which swaync-client",
-    "format": "{icon}",
-    "format-icons": {
-      "none": "󰅺",
-      "notification": "󰡟"
-    },
-    "on-click": "sleep 0.1 && swaync-client -t -sw",
-    "return-type": "json",
-    "tooltip": false
   },
   "battery": {
     "states": {
