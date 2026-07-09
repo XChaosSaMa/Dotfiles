@@ -48,7 +48,8 @@
   "custom/playerctl": {
     "format": "{icon} {text}",
     "return-type": "json",
-    "max-length": 35, // Reducido un poco para dar espacio a los botones laterales
+    "max-length": 35,
+    "escape": true, // <- ESTO SOLUCIONA EL ERROR DEL '&' EN LAS CANCIONES
     "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F 2>/dev/null",
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
