@@ -1,7 +1,6 @@
 * {
   min-height: 0;
   min-width: 0;
-  /* Cambiado a Hack Nerd Font para que coincida con tu Fastfetch */
   font-family: "Hack Nerd Font", Lexend;
   font-size: 13px;
   font-weight: 700;
@@ -41,23 +40,46 @@ window#waybar {
   color: #11111b;
 }
 
-/* Título de la ventana en el centro */
-#window {
+/* ESTILO PARA EL CONTENEDOR CENTRAL DE MÚSICA */
+#group-media {
   background-color: rgba(49, 50, 68, 0.5);
-  color: #cdd6f4;
-  padding: 0px 15px;
+  padding: 0px 8px;
   border-radius: 6px;
   margin: 4px 0px;
 }
 
-window#waybar.empty #window {
+/* Botones interactivos de atrás y adelante */
+#custom-media-prev, #custom-media-next {
+  color: #a6adc8; /* Color discreto para las flechas */
+  padding: 0px 6px;
+  transition: all 0.2s ease;
+}
+
+#custom-media-prev:hover, #custom-media-next:hover {
+  color: #89b4fa; /* Cambia a azul al pasar el mouse por encima */
+}
+
+/* Estilo del texto del reproductor */
+#custom-playerctl {
+  color: #cdd6f4;
+  padding: 0px 6px;
+}
+
+/* Cambios de color sutiles según el estado */
+#custom-playerctl.Playing {
+  color: #f5e0dc; /* Tono Rosewater elegante cuando suena */
+}
+
+#custom-playerctl.Paused {
+  color: #6c7086; /* Color apagado cuando está pausado */
+}
+
+/* Ocultar fondo si está vacío */
+window#waybar.empty #group-media {
   background-color: transparent;
 }
 
-/* 
-   NUEVA CONFIGURACIÓN PARA MÓDULOS DE LA DERECHA:
-   Fondo oscuro/traslúcido, cada uno con texto de su color pastel correspondiente
-*/
+/* Configuración para los módulos de la derecha */
 #cpu, #memory, #backlight, #battery, #pulseaudio, #clock, #tray, #custom-notification, #custom-power,
 #custom-lock, #custom-suspend, #custom-reboot, #custom-quit {
   padding: 0px 12px;
