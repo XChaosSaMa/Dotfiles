@@ -8,7 +8,7 @@
   "passthrough": false,
   "fixed-center": true,
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
+  "modules-center": ["group/media"],
   "modules-right": [
     "cpu",
     "memory",
@@ -23,12 +23,43 @@
     "format": "{id}",
     "all-outputs": true,
     "disable-scroll": false,
-    "active-only": false,
+    "active-only": false
   },
-  "hyprland/window": {
-    "format": "󰖯 {title}",
-    "max-length": 40
+
+  // GRUPO PARA CONTROLES DE MÚSICA Y TEXTO
+  "group/media": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/media-prev",
+      "custom/playerctl",
+      "custom/media-next"
+    ]
   },
+  "custom/media-prev": {
+    "format": "󰒮",
+    "on-click": "playerctl previous",
+    "tooltip": false
+  },
+  "custom/media-next": {
+    "format": "󰒭",
+    "on-click": "playerctl next",
+    "tooltip": false
+  },
+  "custom/playerctl": {
+    "format": "{icon} {text}",
+    "return-type": "json",
+    "max-length": 35, // Reducido un poco para dar espacio a los botones laterales
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F 2>/dev/null",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "format-icons": {
+      "Playing": "󰎆",
+      "Paused": "󱋱",
+      "default": "󰎆"
+    }
+  },
+
   "tray": {
     "show-passive-items": true,
     "spacing": 10
