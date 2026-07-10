@@ -19,7 +19,7 @@ local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "fuzzel"
 local browser     = "brave"
-local CodeEditor  = "nvim"
+local CodeEditor  = "kitty -e nvim"
 
 -------------------
 ---- AUTOSTART ----
