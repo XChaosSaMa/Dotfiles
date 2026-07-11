@@ -1,11 +1,25 @@
-# ~/.bashrc
+# ==============================================================================
+# 0. INICIO AUTOMÁTICO DE HYPRLAND
+# ==============================================================================
+# Comprobamos si estamos en la tty1 y si es una shell de login interactiva
+if [[ "$(tty)" == "/dev/tty1" && $- == *i* ]]; then
+    # Variables críticas para exprimir tu RTX 4060 en Wayland
+    export GB_NAMES="nvidia-drm"
+    export __GLX_VENDOR_LIBRARY_NAME="nvidia"
+    export ELECTRON_OZONE_PLATFORM_HINT="wayland"
+    
+    exec start-hyprland
+fi
+
+# ==============================================================================
+# ~/.bashrc Original
+# ==============================================================================
 
 # 1. EVITAR EJECUCIÓN NO INTERACTIVA
 # Si no estamos en una sesión interactiva, no hacer nada
 [[ $- != *i* ]] && return
 
 # 2. COLORES EN LA TERMINAL (PROMPT)
-# Un prompt limpio, minimalista y con colores para saber dónde estás
 PS1='\[\e[1;32m\]\u\[\e[0m\]@\[\e[1;34m\]\h\[\e[0m\]:\[\e[1;36m\]\w\[\e[0m\]\$ '
 
 # Habilitar colores para ls, grep y diff
@@ -14,16 +28,16 @@ alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 
 # 3. CONTROL DEL HISTORIAL (INTELIGENTE)
-HISTCONTROL=ignoreboth:erasedups # No guardar comandos duplicados ni con espacio delante
-HISTSIZE=5000                    # Cuántos comandos recordar en memoria
-HISTFILESIZE=10000               # Cuántos comandos guardar en el archivo físico
-shopt -s histappend              # Añadir al historial en lugar de sobrescribirlo
-shopt -s cmdhist                 # Guardar comandos de varias líneas en una sola entrada
+HISTCONTROL=ignoreboth:erasedups
+HISTSIZE=5000
+HISTFILESIZE=10000
+shopt -s histappend
+shopt -s cmdhist
 
 # 4. OPCIONES DE CALIDAD DE VIDA (SHOPT)
-shopt -s autocd     # Si escribes solo el nombre de una carpeta, entra en ella sin usar 'cd'
-shopt -s globstar   # Permite usar ** para buscar recursivamente (ej: ls **/archivo.txt)
-shopt -s cdspell    # Corrige automáticamente pequeños errores ortográficos al usar cd
+shopt -s autocd
+shopt -s globstar
+shopt -s cdspell
 
 # 5. ALIASES ÚTILES Y MINIMALISTAS
 alias ll='ls -hal'
