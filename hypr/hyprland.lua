@@ -18,7 +18,7 @@ hl.monitor({
 local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "fuzzel"
-local browser     = "brave"
+local browser     = "zen-browser"
 local CodeEditor  = "kitty -e nvim"
 
 -------------------
