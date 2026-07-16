@@ -1,6 +1,8 @@
 # 🌌 My Dotfiles
 
-Welcome to my personal configuration files! This repository contains my daily-driver setups and environment configs. Currently focused on a modern, minimal, and fluid **Wayland** workflow.
+Welcome to my personal configuration files! This repository contains my daily-driver setups designed for an **ultra-minimal Arch Linux** installation. 
+
+The core philosophy of this setup is extreme efficiency: keeping the package count as low as possible and avoiding unnecessary dependencies while maintaining a highly functional, beautiful, and modern Wayland-based workflow.
 
 ---
 
