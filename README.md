@@ -35,4 +35,4 @@ Here is a quick overview of the main components driving this setup:
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/YOUR_USERNAME/Dotfiles.git](https://github.com/YOUR_USERNAME/Dotfiles.git) ~/Dotfiles
+git clone https://github.com/XChaosSaMa/Dotfiles.git
