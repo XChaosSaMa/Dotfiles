@@ -22,9 +22,6 @@ Here is a quick overview of the main components driving this setup:
 
 ## 📸 Screenshots
 
-> [!TIP]
-> *Show off your beautiful desktop here! You can drag and drop your screenshots directly into this file on GitHub.*
-
 | Clean (Empty) | Dirty (Workspaces Active) |
 | :---: | :---: |
 | ![Clean Setup](path/to/screenshot1.png) | ![Dirty Setup](path/to/screenshot2.png) |
