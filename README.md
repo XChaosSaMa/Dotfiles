@@ -24,7 +24,7 @@ Here is a quick overview of the main components driving this setup:
 
 | Clean (Empty) | Dirty (Workspaces Active) |
 | :---: | :---: |
-| ![Clean Setup](path/to/screenshot1.png) | ![Dirty Setup](path/to/screenshot2.png) |
+| ![Clean Setup](screenshots/image.png) | ![Dirty Setup](screenshots/image2.png) |
 
 ---
 
